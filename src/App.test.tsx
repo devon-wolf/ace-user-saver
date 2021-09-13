@@ -1,8 +1,9 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import UserSaver from './pages/UserSaver';
 
-it('renders a search bar', () => {
+it('renders a search bar and accepts input', () => {
     render(<UserSaver />);
-    screen.getByLabelText('user search');
+    const searchBar = screen.getByLabelText('user search');
+    fireEvent.change(searchBar, { target: { value: 'devon-wolf' }});
 });
