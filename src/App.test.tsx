@@ -11,6 +11,5 @@ test('renders learn react link', () => {
 
 it('renders a search bar', () => {
     render(<UserSaver />);
-    const searchBar = screen.getByLabelText('user search');
-    expect(searchBar).toBeInTheDocument();
+    screen.getByLabelText('user search');
 });
