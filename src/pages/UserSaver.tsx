@@ -1,15 +1,11 @@
-import { Container, TextField } from '@material-ui/core';
+import Container from '@material-ui/core/Container';
 import React from 'react';
+import SearchForm from '../components/searchForm/SearchForm';
 
 const UserSaver = (): JSX.Element => {
     return (
         <Container maxWidth="sm">
-            <form>
-                <TextField 
-                    placeholder="Enter username"
-                    aria-label="user search"
-                />
-            </form>
+            <SearchForm />
         </Container>
     );
 };
