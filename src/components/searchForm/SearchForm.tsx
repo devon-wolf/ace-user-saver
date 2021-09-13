@@ -1,11 +1,16 @@
 import TextField from '@material-ui/core/TextField';
-import React, { useState } from 'react';
+import React, { FormEvent, useState } from 'react';
 
 const SearchForm = (): JSX.Element => {
     const [searchInput, setSearchInput] = useState('');
 
+    const handleFormSubmit = (e: FormEvent) => {
+        e.preventDefault();
+        setSearchInput('Submitted!');
+    };
+
     return (
-        <form>
+        <form aria-label="search form" onSubmit={handleFormSubmit}>
             <TextField 
                 placeholder="Enter username"
                 inputProps={{ 'aria-label': 'user search' }}

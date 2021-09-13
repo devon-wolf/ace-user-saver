@@ -1,13 +1,13 @@
 import React from 'react';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import UserSaver from './pages/UserSaver';
+import userEvent from '@testing-library/user-event';
 
 it('renders a search bar and accepts input', () => {
     render(<UserSaver />);
     const searchBar = screen.getByLabelText('user search');
-    fireEvent.change(searchBar, {
-        target: { 
-            value: 'devon-wolf' 
-        }
-    });
+    userEvent.type(searchBar, 'devon-wolf');
+    userEvent.type(searchBar, '{enter}');
+
+    expect(searchBar).toHaveValue('Submitted!');
 });
