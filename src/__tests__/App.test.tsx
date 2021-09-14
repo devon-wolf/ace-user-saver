@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import UserSaver from './pages/UserSaver';
+import UserSaver from '../pages/UserSaver';
 import userEvent from '@testing-library/user-event';
 
 describe('Successful user saver search flow', () => {
@@ -18,7 +18,7 @@ describe('Successful user saver search flow', () => {
         expect(searchBar).toHaveValue('');
     });
 
-    it('renders a list of saved users after at least one successful search', async () => {
+    it('renders a table of saved users after at least one successful search', async () => {
         const searchBar = screen.getByLabelText('user search');
         userEvent.type(searchBar, 'devon-wolf');
         userEvent.type(searchBar, '{enter}');
