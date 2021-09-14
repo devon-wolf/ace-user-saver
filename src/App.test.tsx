@@ -17,5 +17,13 @@ describe('User saver page', () => {
         userEvent.type(searchBar, '{enter}');
         expect(searchBar).toHaveValue('');
     });
+
+    it('renders a list of saved users after at least one successful search', async () => {
+        const searchBar = screen.getByLabelText('user search');
+        userEvent.type(searchBar, 'devon-wolf');
+        userEvent.type(searchBar, '{enter}');
+
+        await screen.findByLabelText('saved users');        
+    });
 });
 
