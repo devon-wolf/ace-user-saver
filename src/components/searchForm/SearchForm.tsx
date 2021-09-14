@@ -6,7 +6,8 @@ const SearchForm = (): JSX.Element => {
 
     const handleFormSubmit = (e: FormEvent) => {
         e.preventDefault();
-        setSearchInput('Submitted!');
+        // form submit actions, then:
+        setSearchInput('');
     };
 
     return (
