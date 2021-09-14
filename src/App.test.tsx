@@ -3,11 +3,19 @@ import { render, screen } from '@testing-library/react';
 import UserSaver from './pages/UserSaver';
 import userEvent from '@testing-library/user-event';
 
-it('renders a search bar and accepts input', () => {
-    render(<UserSaver />);
-    const searchBar = screen.getByLabelText('user search');
-    userEvent.type(searchBar, 'devon-wolf');
-    userEvent.type(searchBar, '{enter}');
+describe('User saver page', () => {
+    beforeEach(() => {
+        render(<UserSaver />);
+    });
 
-    expect(searchBar).toHaveValue('Submitted!');
+    it('renders a search bar, accepts input, and clears search bar on submit', () => {
+        const searchBar = screen.getByLabelText('user search');
+    
+        userEvent.type(searchBar, 'devon-wolf');
+        expect(searchBar).toHaveValue('devon-wolf');
+
+        userEvent.type(searchBar, '{enter}');
+        expect(searchBar).toHaveValue('');
+    });
 });
+
