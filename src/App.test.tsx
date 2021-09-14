@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import UserSaver from './pages/UserSaver';
 import userEvent from '@testing-library/user-event';
 
-describe('User saver page', () => {
+describe('Successful user saver search flow', () => {
     beforeEach(() => {
         render(<UserSaver />);
     });

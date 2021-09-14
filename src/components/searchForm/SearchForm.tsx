@@ -1,12 +1,30 @@
 import TextField from '@material-ui/core/TextField';
 import React, { FormEvent, useState } from 'react';
+import { User } from '../../types';
 
-const SearchForm = (): JSX.Element => {
+interface Props {
+    onFormSubmit: (user: User) => void;
+}
+
+const SearchForm = ({ onFormSubmit }: Props): JSX.Element => {
     const [searchInput, setSearchInput] = useState('');
 
     const handleFormSubmit = (e: FormEvent) => {
         e.preventDefault();
-        // form submit actions, then:
+        // TODO make a fetch and munge the data
+        const newUser = {
+            login: 'fake',
+            id: 12345,
+            url: 'fake',
+            name: 'fake',
+            public_repos: 1,
+            public_gists: 1,
+            followers: 1,
+            following: 1,
+            created_at: 'fake'
+        };
+
+        onFormSubmit(newUser);
         setSearchInput('');
     };
 
